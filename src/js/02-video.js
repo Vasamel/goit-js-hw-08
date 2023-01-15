@@ -20,17 +20,5 @@ const currentTime = localStorage.getItem(LOCALSTORAGE_KEY);
 if (currentTime) {
   player
     .setCurrentTime(currentTime)
-    .then(function (seconds) {
-      console.log(seconds);
-    })
-    .catch(function (error) {
-      switch (error.name) {
-        case 'RangeError':
-          break;
-
-        default:
-          break;
-      }
-    }),
     console.log(LOCALSTORAGE_KEY);
 }

@@ -6,12 +6,12 @@ form.addEventListener('input', throttle(onInput, 500));
 form.addEventListener('submit', onClickButton);
 
 const LOCAL_DATA = 'feedback-form-state';
-const date = {};
+let date = {};
 
 if (localStorage.getItem(LOCAL_DATA)) {
     const parsedData = JSON.parse(localStorage.getItem(LOCAL_DATA));
     form.elements.email.value = parsedData.email || '';
-    form.elements.message.value = parsedData.message;
+    form.elements.message.value = parsedData.message || '';
 }
 
 function onInput(e) {
@@ -29,7 +29,7 @@ function onClickButton(e) {
     localStorage.removeItem(LOCAL_DATA);
     e.currentTarget.reset();
 
-    delete date.email;
-    delete date.message;
+    let date = '';
+    
 }
 
